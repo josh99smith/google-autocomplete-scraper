@@ -1,14 +1,24 @@
-Collect **Google Autocomplete keyword suggestions** for any list of seed keywords, in any country and language. Type `best crm for` into Google and you see ten to fifteen phrases that real people search for; this Actor fetches those phrases for hundreds of seeds at once, expands them with a-z, question, preposition and number modifiers, and hands you a clean, deduplicated keyword list as JSON, CSV or Excel.
+This **Google Autocomplete scraper** collects Google keyword suggestions for any list of seed keywords, in any country and language. Type `best crm for` into Google and you see ten to fifteen phrases that real people search for; this Actor fetches those phrases for hundreds of seeds at once, expands them with a-z, question, preposition and number modifiers, and hands you a clean, deduplicated keyword list as JSON, CSV or Excel.
 
 It is built for **SEO specialists, content marketers and product researchers** who need long-tail keyword ideas and question-style queries without paying for a keyword-tool subscription. You pay a flat price per seed keyword, and keywords that could not be queried are reported **free of charge**.
+
+## Features
+
+- Find long-tail keyword ideas from Google autocomplete suggestions
+- Scrape Google search suggestions for a list of keywords in bulk
+- Get "People Also Ask" style questions with who, what, why, how and other question prefixes
+- Expand a seed keyword with every letter a to z to discover hidden suggestions
+- Collect keyword suggestions by country and language (gl and hl parameters)
+- Export Google autocomplete keywords to CSV, Excel or Google Sheets
+- Build topic clusters by re-querying each suggestion one level deeper
+- Track how autocomplete suggestions for a brand or product change over time
 
 ## What can you do with Google Autocomplete Keyword Scraper?
 
 - **Long-tail keyword research**: turn one head term into hundreds of specific phrases (`best crm for real estate agents`, `best crm for nonprofits`, ...).
-- **Question mining**: prefix your topic with who / what / when / where / why / how / can / is / are / does / will to find the questions people actually type, similar to a "People Also Ask" list, ready for FAQ pages and blog outlines.
+- **Question mining**: prefix your topic with who / what / when / where / why / how / can / is / are / does / will to find the questions people actually type, ready for FAQ pages and blog outlines.
 - **Content planning**: use depth 2 to follow each suggestion one step further and build topic clusters around a pillar page.
 - **Local and international SEO**: run the same seeds for `gl=de`, `gl=in`, `gl=br` and the matching language to see how demand differs by market.
-- **Feed AI agents and pipelines** through the Apify API and MCP server.
 
 ## How it works
 
@@ -72,8 +82,6 @@ Requests that fail are recorded too, so nothing silently disappears:
 
 The run also stores a `SUMMARY` record in the key-value store with `keywordsRequested`, `keywordsCharged`, `suggestionsFound`, `failures` and `requestsMade`.
 
-### Fields
-
 | Field                 | Description                                                                                                   |
 | --------------------- | ------------------------------------------------------------------------------------------------------------- |
 | `seedKeyword`         | The keyword from your input that this suggestion belongs to.                                                  |
@@ -87,6 +95,47 @@ The run also stores a `SUMMARY` record in the key-value store with `keywordsRequ
 | `country`, `language` | The `gl` and `hl` values used.                                                                                |
 | `errorType`           | For failures: `rate-limited`, `blocked`, `timeout`, `network`, `http-error` or `other`.                       |
 
+## Use it from the API, Python, JavaScript or an AI agent
+
+Run the Actor and get every suggestion back in one HTTP call:
+
+```bash
+curl -X POST "https://api.apify.com/v2/acts/josh99smith~google-autocomplete-scraper/run-sync-get-dataset-items?token=<YOUR_API_TOKEN>" \
+  -H "Content-Type: application/json" \
+  -d '{ "keywords": ["best crm for"], "country": "us", "language": "en" }'
+```
+
+Python, with the [apify-client](https://docs.apify.com/api/client/python) package:
+
+```python
+from apify_client import ApifyClient
+
+client = ApifyClient("<YOUR_API_TOKEN>")
+run = client.actor("josh99smith/google-autocomplete-scraper").call(
+    run_input={"keywords": ["best crm for"], "country": "us", "language": "en", "expandQuestions": True}
+)
+for item in client.dataset(run["defaultDatasetId"]).iterate_items():
+    print(item["seedKeyword"], "->", item.get("suggestion"))
+```
+
+JavaScript, with the [apify-client](https://docs.apify.com/api/client/js) package:
+
+```javascript
+import { ApifyClient } from "apify-client";
+
+const client = new ApifyClient({ token: "<YOUR_API_TOKEN>" });
+const run = await client.actor("josh99smith/google-autocomplete-scraper").call({
+    keywords: ["best crm for"],
+    country: "us",
+    language: "en",
+    expandAlphabet: true,
+});
+const { items } = await client.dataset(run.defaultDatasetId).listItems();
+console.log(items.map((item) => item.suggestion));
+```
+
+The Actor is also available as a tool through the Apify MCP server for AI agents, and it can be scheduled or connected to Zapier, Make, n8n and Google Sheets in the Integrations tab.
+
 ## Pricing: how much does it cost to scrape Google Autocomplete suggestions?
 
 You pay a **flat price per seed keyword** (shown next to the Start button). The price covers every expansion and depth-2 request for that keyword, however many suggestions it produces; 15 suggestions or 1,000 cost the same. A keyword whose requests fail because of rate limiting or a network error is **not charged** and is reported with an `errorType` instead. Keywords that legitimately return zero suggestions are charged, because the queries did run.
@@ -98,19 +147,36 @@ There is no charge for Actor start-up, and the Actor stops automatically when it
 - **Expansions multiply requests.** Each seed keyword sends 1 request by default; a-z adds 26, question words 11, prepositions 8 and numbers 10 (all four together: 56 requests per keyword). Depth 2 adds one request per suggestion found at depth 1. The price per keyword stays the same, but runs take longer.
 - **Use the cap.** `maxSuggestionsPerKeyword` stops sending requests for a keyword as soon as the limit is hit, which keeps depth-2 runs fast. In testing, `best crm for` with a-z + prepositions + depth 2 produced 1,000 unique suggestions from 188 requests in about 35 seconds.
 - **Question mining works best with a topic, not a full question.** Seed `start a podcast` rather than `how to start a podcast`.
-- **Rate limits.** Google tolerates a few requests per second from one IP. Keep **Max concurrency** at the default (3) and enable **Apify Proxy** in the Advanced section if you see `rate-limited` failures on big runs. Proxy traffic is billed separately by Apify.
 - **Schedule it** to track how suggestions for your brand change week over week.
 
 ## FAQ
 
-**Are these the same suggestions I see in the Google search box?**
+### Are these the same suggestions I see in the Google search box?
+
 Yes, they come from the same public autocomplete endpoint, using the `client=chrome` mode, which returns up to 15 suggestions plus relevance scores. Suggestions are personalised in a signed-in browser, so what you see may differ slightly from the unpersonalised results the Actor collects.
 
-**Does it return search volume?**
+### Does Google Autocomplete give search volume?
+
 No. Google Autocomplete does not expose volumes. The `relevance` score is Google's own ranking signal for the suggestion list and is useful for ordering, not for estimating traffic.
 
-**Is this legal?**
+### How many keywords can I scrape and what about rate limits?
+
+There is no fixed cap on the keyword list; the run stops cleanly when it reaches the maximum cost you set. Google tolerates a few requests per second from one IP, so keep **Max concurrency** at the default (3) and enable **Apify Proxy** in the Advanced section if you see `rate-limited` failures on big runs (proxy traffic is billed separately by Apify). Seed keywords are processed one after another, and the run pauses for 10 seconds when Google throttles it and stops after 3 consecutive keywords fail completely.
+
+### Is it legal to scrape Google Autocomplete suggestions?
+
 The Actor reads a public, unauthenticated endpoint at a low request rate, stores only the suggestion text Google publishes, and collects no personal data. You are responsible for using the results in compliance with the laws and terms that apply to you.
+
+## Related Actors by the same developer
+
+- [Website Tech Stack Detector](https://apify.com/josh99smith/tech-stack-detector): what a website is built with.
+- [Website Screenshot API](https://apify.com/josh99smith/website-screenshot-api): full-page screenshots and PDFs of any URL.
+- [App Reviews Scraper](https://apify.com/josh99smith/app-reviews-scraper): App Store and Google Play reviews.
+- [PageSpeed Insights Audit](https://apify.com/josh99smith/pagespeed-insights-audit): Core Web Vitals via Google's API.
+- [Remote Jobs Aggregator](https://apify.com/josh99smith/remote-jobs-aggregator): remote job listings.
+- [PDF Text Extractor](https://apify.com/josh99smith/pdf-text-extractor): text and metadata from PDFs.
+- [Sitemap URL Extractor](https://apify.com/josh99smith/sitemap-url-extractor): all URLs from XML sitemaps.
+- [RSS Feed to JSON](https://apify.com/josh99smith/rss-feed-to-json): feeds as JSON.
 
 ## Support and feedback
 

@@ -1,10 +1,17 @@
 {
     "seoTitle": "Google Autocomplete Keyword Scraper: Suggestions API",
     "seoDescription": "Scrape Google Autocomplete suggestions for any seed keyword by country and language. A-Z, question, preposition expansions. Pay per keyword; failures free.",
-    "categories": ["SEO_TOOLS", "MARKETING"],
+    "categories": [
+        "SEO_TOOLS",
+        "MARKETING"
+    ],
     "isPublic": true,
     "actorPermissionLevel": "LIMITED_PERMISSIONS",
-    "defaultRunOptions": { "build": "latest", "memoryMbytes": 512, "timeoutSecs": 3600 },
+    "defaultRunOptions": {
+        "build": "latest",
+        "memoryMbytes": 512,
+        "timeoutSecs": 3600
+    },
     "pricing": {
         "events": {
             "keyword-queried": {
@@ -14,5 +21,6 @@
                 "isPrimaryEvent": true
             }
         }
-    }
+    },
+    "pictureUrl": "https://api.apify.com/v2/key-value-stores/xwGvZbThlWx5vaPgh/records/google-autocomplete-scraper.png"
 }

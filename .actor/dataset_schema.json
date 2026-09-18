@@ -1,6 +1,74 @@
 {
     "actorSpecification": 1,
-    "fields": {},
+    "fields": {
+        "type": "object",
+        "properties": {
+            "success": {
+                "type": "boolean",
+                "description": "True for a suggestion record; false for a free failure record describing a request that could not be completed."
+            },
+            "seedKeyword": {
+                "type": "string",
+                "description": "The seed keyword from your input that this record belongs to."
+            },
+            "query": {
+                "type": "string",
+                "description": "The exact query sent to Google Autocomplete (seed keyword plus any modifier, or a depth-1 suggestion for depth-2 requests)."
+            },
+            "fetchedAt": {
+                "type": "string",
+                "format": "date-time",
+                "description": "ISO 8601 timestamp of when the suggestion was fetched or the request failed."
+            },
+            "suggestion": {
+                "type": "string",
+                "description": "The autocomplete suggestion text as Google returned it."
+            },
+            "position": {
+                "type": "integer",
+                "description": "1-based position of the suggestion in Google's reply for that query."
+            },
+            "relevance": {
+                "type": ["integer", "null"],
+                "description": "Google's relevance score for the suggestion (higher ranks first); null when Google did not send one."
+            },
+            "suggestType": {
+                "type": ["string", "null"],
+                "description": "Google's suggestion type, usually QUERY; null when not provided."
+            },
+            "modifierType": {
+                "type": "string",
+                "description": "Which expansion produced the query: none for the plain seed, alphabet, question, preposition, number or depth2.",
+                "enum": ["none", "alphabet", "question", "preposition", "number", "depth2"]
+            },
+            "modifier": {
+                "type": ["string", "null"],
+                "description": "The letter, word or digit added to the seed keyword, or the re-queried suggestion for depth2; null for the plain seed."
+            },
+            "country": {
+                "type": "string",
+                "description": "Two-letter country code (gl parameter) the suggestions were fetched for."
+            },
+            "language": {
+                "type": "string",
+                "description": "Interface language code (hl parameter) the suggestions were fetched for."
+            },
+            "errorType": {
+                "type": "string",
+                "description": "Failure category when success is false.",
+                "enum": ["timeout", "blocked", "rate-limited", "http-error", "network", "other"]
+            },
+            "error": {
+                "type": "string",
+                "description": "Human-readable error message explaining why the request failed."
+            },
+            "statusCode": {
+                "type": "integer",
+                "description": "HTTP status code returned by the autocomplete endpoint when a request failed."
+            }
+        },
+        "required": ["success", "seedKeyword", "query", "fetchedAt"]
+    },
     "views": {
         "overview": {
             "title": "Overview",
