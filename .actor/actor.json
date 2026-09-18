@@ -1,0 +1,21 @@
+{
+    "$schema": "https://apify.com/schemas/v1/actor.ide.json",
+    "actorSpecification": 1,
+    "name": "google-autocomplete-scraper",
+    "title": "Google Autocomplete Keyword Scraper",
+    "description": "Collect Google Autocomplete search suggestions for your seed keywords in any country and language. Expand with a-z, question, preposition and number modifiers to mine long-tail keywords and questions. Priced per seed keyword.",
+    "version": "0.1",
+    "buildTag": "latest",
+    "meta": {
+        "templateId": "ts-empty",
+        "generatedBy": "Claude Code with Claude Opus 5"
+    },
+    "inputSchema": "./input_schema.json",
+    "outputSchema": "./output_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "dockerfile": "../Dockerfile",
+    "minMemoryMbytes": 256,
+    "maxMemoryMbytes": 1024
+}

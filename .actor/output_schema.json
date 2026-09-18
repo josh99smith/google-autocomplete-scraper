@@ -1,0 +1,18 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Google Autocomplete Keyword Scraper output",
+    "properties": {
+        "results": {
+            "type": "string",
+            "title": "Keyword suggestions",
+            "template": "{{links.apiDefaultDatasetUrl}}",
+            "description": "One record per unique suggestion (seed keyword, query sent, suggestion, position, modifier, relevance) plus free failure records for keywords that could not be queried."
+        },
+        "summary": {
+            "type": "string",
+            "title": "Run summary",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/SUMMARY",
+            "description": "Counts of requested and charged keywords, suggestions found, requests made and failures."
+        }
+    }
+}

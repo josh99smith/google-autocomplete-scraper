@@ -1,0 +1,102 @@
+{
+    "$schema": "https://apify.com/schemas/v1/input.ide.json",
+    "title": "Google Autocomplete Keyword Scraper input",
+    "description": "Enter one or more seed keywords. Each seed keyword (including all of its expansions) is one billable result; keywords that fail because of network or rate-limit errors are reported for free.",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "keywords": {
+            "title": "Seed keywords",
+            "type": "array",
+            "description": "One seed keyword per line (or a JSON array of strings). Google Autocomplete works best with partial phrases such as `best crm for` or `how to start a podcast`. Duplicates are removed automatically.",
+            "editor": "stringList",
+            "prefill": ["best crm for", "how to start a podcast"],
+            "uniqueItems": true
+        },
+        "country": {
+            "title": "Country",
+            "type": "string",
+            "description": "Two-letter country code (`gl` parameter) that controls which country's suggestions are returned, e.g. `us`, `gb`, `de`, `in`, `br`.",
+            "editor": "textfield",
+            "default": "us",
+            "pattern": "^[A-Za-z]{2}$"
+        },
+        "language": {
+            "title": "Language",
+            "type": "string",
+            "description": "Interface language code (`hl` parameter), e.g. `en`, `de`, `es`, `pt-BR`, `zh-CN`. Use the language your target audience searches in.",
+            "editor": "textfield",
+            "default": "en",
+            "pattern": "^[A-Za-z]{2,3}(-[A-Za-z]{2,4})?$"
+        },
+        "expandAlphabet": {
+            "title": "Expand with a-z",
+            "type": "boolean",
+            "description": "Also query `<keyword> a` to `<keyword> z` (26 extra requests per seed keyword). The most effective way to discover long-tail suggestions.",
+            "default": false
+        },
+        "expandQuestions": {
+            "title": "Expand with question words",
+            "type": "boolean",
+            "description": "Also query `who <keyword>`, `what <keyword>`, `when`, `where`, `why`, `how`, `can`, `is`, `are`, `does`, `will` (11 extra requests per seed keyword). Great for mining question-style keywords.",
+            "default": false
+        },
+        "expandPrepositions": {
+            "title": "Expand with prepositions",
+            "type": "boolean",
+            "description": "Also query `<keyword> for`, `with`, `without`, `near`, `to`, `vs`, `like`, `versus` (8 extra requests per seed keyword).",
+            "default": false
+        },
+        "expandNumbers": {
+            "title": "Expand with numbers",
+            "type": "boolean",
+            "description": "Also query `<keyword> 0` to `<keyword> 9` (10 extra requests per seed keyword). Useful for years, versions and top-10 style queries.",
+            "default": false
+        },
+        "maxSuggestionsPerKeyword": {
+            "title": "Max suggestions per keyword",
+            "type": "integer",
+            "description": "Stop collecting for a seed keyword once this many unique suggestions have been found. Remaining expansion and depth-2 requests for that keyword are skipped.",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 5000,
+            "editor": "number"
+        },
+        "depth": {
+            "title": "Depth",
+            "type": "integer",
+            "description": "`1` queries only the seed keyword (plus enabled expansions). `2` additionally re-queries every suggestion found at depth 1 once, which multiplies the number of requests but uncovers many more long-tail phrases.",
+            "default": 1,
+            "minimum": 1,
+            "maximum": 2,
+            "editor": "number"
+        },
+        "maxConcurrency": {
+            "title": "Max concurrency",
+            "type": "integer",
+            "description": "How many suggest requests to run in parallel for the current seed keyword. Keep it low (the default is 3) to avoid rate limiting; seed keywords are always processed one after another.",
+            "default": 3,
+            "minimum": 1,
+            "maximum": 5,
+            "editor": "number",
+            "sectionCaption": "Advanced"
+        },
+        "maxRetries": {
+            "title": "Retries per request",
+            "type": "integer",
+            "description": "How many times to retry a failed suggest request (with exponential back-off) before reporting it as failed.",
+            "default": 2,
+            "minimum": 0,
+            "maximum": 5,
+            "editor": "number"
+        },
+        "proxyConfiguration": {
+            "title": "Proxy configuration",
+            "type": "object",
+            "description": "Optional. Route requests through Apify Proxy if Google starts rate-limiting the datacenter IP addresses used by the platform. Proxy usage is billed by Apify separately from this Actor's per-keyword price.",
+            "editor": "proxy",
+            "prefill": { "useApifyProxy": false }
+        }
+    },
+    "required": ["keywords"]
+}

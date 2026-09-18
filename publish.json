@@ -1,0 +1,18 @@
+{
+    "seoTitle": "Google Autocomplete Keyword Scraper: Suggestions API",
+    "seoDescription": "Scrape Google Autocomplete suggestions for any seed keyword by country and language. A-Z, question, preposition expansions. Pay per keyword; failures free.",
+    "categories": ["SEO_TOOLS", "MARKETING"],
+    "isPublic": true,
+    "actorPermissionLevel": "LIMITED_PERMISSIONS",
+    "defaultRunOptions": { "build": "latest", "memoryMbytes": 512, "timeoutSecs": 3600 },
+    "pricing": {
+        "events": {
+            "keyword-queried": {
+                "eventTitle": "Seed keyword queried",
+                "eventDescription": "One seed keyword fully processed, including every enabled expansion (a-z, questions, prepositions, numbers) and depth-2 re-queries. All suggestions found for that keyword are included in the price. Keywords that fail because of network errors or rate limiting are not charged.",
+                "eventPriceUsd": 0.003,
+                "isPrimaryEvent": true
+            }
+        }
+    }
+}

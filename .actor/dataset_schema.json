@@ -1,0 +1,57 @@
+{
+    "actorSpecification": 1,
+    "fields": {},
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": [
+                    "seedKeyword",
+                    "suggestion",
+                    "query",
+                    "position",
+                    "relevance",
+                    "modifierType",
+                    "modifier",
+                    "country",
+                    "language",
+                    "errorType",
+                    "error"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "seedKeyword": { "label": "Seed keyword", "format": "text" },
+                    "suggestion": { "label": "Suggestion", "format": "text" },
+                    "query": { "label": "Query sent", "format": "text" },
+                    "position": { "label": "Position", "format": "number" },
+                    "relevance": { "label": "Relevance", "format": "number" },
+                    "modifierType": { "label": "Modifier type", "format": "text" },
+                    "modifier": { "label": "Modifier", "format": "text" },
+                    "country": { "label": "Country", "format": "text" },
+                    "language": { "label": "Language", "format": "text" },
+                    "errorType": { "label": "Error type", "format": "text" },
+                    "error": { "label": "Error", "format": "text" }
+                }
+            }
+        },
+        "failures": {
+            "title": "Failures",
+            "transformation": {
+                "fields": ["seedKeyword", "query", "errorType", "error", "statusCode", "fetchedAt"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "seedKeyword": { "label": "Seed keyword", "format": "text" },
+                    "query": { "label": "Query sent", "format": "text" },
+                    "errorType": { "label": "Error type", "format": "text" },
+                    "error": { "label": "Error", "format": "text" },
+                    "statusCode": { "label": "HTTP status", "format": "number" },
+                    "fetchedAt": { "label": "Fetched at", "format": "date" }
+                }
+            }
+        }
+    }
+}
