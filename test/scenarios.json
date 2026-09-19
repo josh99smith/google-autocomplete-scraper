@@ -1,0 +1,118 @@
+{
+    "happy-path": {
+        "input": {
+            "keywords": [
+                "best crm for",
+                "how to start a podcast"
+            ]
+        },
+        "expect": {
+            "status": "SUCCEEDED",
+            "minItems": 10,
+            "maxFailed": 0,
+            "maxDurationSecs": 60
+        }
+    },
+    "all-expansions-depth2": {
+        "input": {
+            "keywords": [
+                "standing desk"
+            ],
+            "expandAlphabet": true,
+            "expandQuestions": true,
+            "expandPrepositions": true,
+            "expandNumbers": true,
+            "depth": 2,
+            "maxSuggestionsPerKeyword": 300
+        },
+        "expect": {
+            "status": "SUCCEEDED",
+            "minItems": 150,
+            "maxFailed": 0,
+            "maxDurationSecs": 240
+        }
+    },
+    "spanish-locale": {
+        "input": {
+            "keywords": [
+                "mejor seguro de coche",
+                "recetas faciles de"
+            ],
+            "country": "es",
+            "language": "es"
+        },
+        "expect": {
+            "status": "SUCCEEDED",
+            "minItems": 10,
+            "maxFailed": 0
+        }
+    },
+    "japanese-locale": {
+        "input": {
+            "keywords": [
+                "\u6771\u4eac \u30db\u30c6\u30eb"
+            ],
+            "country": "jp",
+            "language": "ja"
+        },
+        "expect": {
+            "status": "SUCCEEDED",
+            "minItems": 3,
+            "maxFailed": 0
+        }
+    },
+    "weird-keywords": {
+        "input": {
+            "keywords": [
+                "",
+                "   ",
+                "a",
+                "zzzzqqqxxxwww1234567",
+                "best crm for",
+                "best crm for"
+            ]
+        },
+        "expect": {
+            "status": "SUCCEEDED",
+            "minItems": 5
+        }
+    },
+    "bad-country": {
+        "input": {
+            "keywords": [
+                "test"
+            ],
+            "country": "usa"
+        },
+        "expect": {
+            "status": "FAILED"
+        }
+    },
+    "budget-cap": {
+        "input": {
+            "keywords": [
+                "shoes",
+                "laptops",
+                "phones",
+                "cameras",
+                "tablets",
+                "headphones"
+            ],
+            "maxConcurrency": 1
+        },
+        "maxTotalChargeUsd": 0.007,
+        "expect": {
+            "status": "SUCCEEDED",
+            "stoppedEarlyDueToBudget": true
+        }
+    },
+    "empty-input": {
+        "input": {
+            "keywords": []
+        },
+        "expect": {
+            "status": "FAILED",
+            "maxItems": 0
+        }
+    }
+}

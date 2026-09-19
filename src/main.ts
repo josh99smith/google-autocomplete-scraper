@@ -151,8 +151,8 @@ for (const seedKeyword of keywords) {
     const failureTypes = [...new Set(result.failures.map((f) => f.errorType))];
     if (result.failures.length === 0) {
         // Every request for this keyword completed (empty results still count: the queries ran).
-        const { eventChargeLimitReached, chargedCount } = await Actor.charge({ eventName: CHARGE_EVENT });
-        keywordsCharged += chargedCount;
+        const { eventChargeLimitReached } = await Actor.charge({ eventName: CHARGE_EVENT });
+        keywordsCharged += 1;
         consecutiveFailedKeywords = 0;
         log.info(
             `"${seedKeyword}": ${result.suggestions.length} unique suggestion(s) from ${result.requestsMade} request(s)` +
