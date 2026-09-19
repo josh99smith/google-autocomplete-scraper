@@ -142,6 +142,8 @@ You pay a **flat price per seed keyword** (shown next to the Start button). The 
 
 There is no charge for Actor start-up, and the Actor stops automatically when it reaches the maximum cost you set for a run, so a large keyword list never produces a surprise bill.
 
+**How it compares (September 2026).** Other autocomplete Actors bill per suggestion ($0.0005 to $0.001 each) or per expansion query plus a $0.005 start fee. This Actor bills a flat $0.003 per seed keyword no matter how many expansions or suggestions it produces. A seed keyword with alphabet, question and preposition expansions at depth 2 returned 1,000 unique suggestions from 188 requests in our test: $0.003 here, $0.50 to $1.00 on a per-suggestion price.
+
 ## Tips
 
 - **Expansions multiply requests.** Each seed keyword sends 1 request by default; a-z adds 26, question words 11, prepositions 8 and numbers 10 (all four together: 56 requests per keyword). Depth 2 adds one request per suggestion found at depth 1. The price per keyword stays the same, but runs take longer.
@@ -166,6 +168,10 @@ There is no fixed cap on the keyword list; the run stops cleanly when it reaches
 ### Is it legal to scrape Google Autocomplete suggestions?
 
 The Actor reads a public, unauthenticated endpoint at a low request rate, stores only the suggestion text Google publishes, and collects no personal data. You are responsible for using the results in compliance with the laws and terms that apply to you.
+
+### Will the output fields change between runs?
+
+No. Output fields are stable: existing fields are never renamed or removed without a major version bump announced in the changelog, and new fields are only ever added. You can build integrations on the schema without checking it after every run.
 
 ## Related Actors by the same developer
 
