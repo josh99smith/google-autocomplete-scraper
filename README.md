@@ -1,3 +1,5 @@
+![google-autocomplete-scraper banner](https://raw.githubusercontent.com/josh99smith/apify-actor-assets/main/banners/google-autocomplete-scraper.png)
+
 This **Google Autocomplete scraper** collects Google keyword suggestions for any list of seed keywords, in any country and language. Type `best crm for` into Google and you see ten to fifteen phrases that real people search for; this Actor fetches those phrases for hundreds of seeds at once, expands them with a-z, question, preposition and number modifiers, and hands you a clean, deduplicated keyword list as JSON, CSV or Excel.
 
 It is built for **SEO specialists, content marketers and product researchers** who need long-tail keyword ideas and question-style queries without paying for a keyword-tool subscription. You pay a flat price per seed keyword, and keywords that could not be queried are reported **free of charge**.
@@ -46,6 +48,8 @@ Requests are sent with low concurrency and small random delays to stay polite. S
 ```
 
 ## Output
+
+![Sample output of google-autocomplete-scraper](https://raw.githubusercontent.com/josh99smith/apify-actor-assets/main/previews/google-autocomplete-scraper.png)
 
 One record per unique suggestion:
 
