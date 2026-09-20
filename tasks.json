@@ -1,0 +1,64 @@
+[
+    {
+        "name": "long-tail-keyword-ideas-alphabet-soup",
+        "title": "Long-tail keyword ideas with the alphabet method",
+        "seoTitle": "Long-tail keyword ideas from Google Autocomplete (A to Z)",
+        "seoDescription": "Append a to z to a seed keyword and collect every Google suggestion, with relevance scores, in one flat-priced run per seed keyword.",
+        "description": "Run the alphabet method on seed keywords: every letter a to z is appended and each Google suggestion is collected with its relevance score. One flat price per seed keyword regardless of how many suggestions come back.",
+        "input": {
+            "keywords": [
+                "standing desk",
+                "best running shoes"
+            ],
+            "expandAlphabet": true,
+            "maxSuggestionsPerKeyword": 200
+        }
+    },
+    {
+        "name": "people-also-ask-style-questions-from-autocomplete",
+        "title": "Question keywords people search for a topic",
+        "seoTitle": "Find question keywords (who, what, how, why) for a topic",
+        "seoDescription": "Prefix who, what, when, where, why, how, can, is, does to a keyword and collect the questions Google suggests, for FAQ pages and content briefs.",
+        "description": "Collect the questions Google suggests for a topic by prefixing who, what, when, where, why, how, can, is, are and does. Feeds FAQ sections, content briefs and People Also Ask style research.",
+        "input": {
+            "keywords": [
+                "air fryer",
+                "electric bike"
+            ],
+            "expandQuestions": true,
+            "maxSuggestionsPerKeyword": 150
+        }
+    },
+    {
+        "name": "keyword-suggestions-for-a-country-and-language",
+        "title": "Keyword suggestions for a country and language",
+        "seoTitle": "Google Autocomplete suggestions by country and language",
+        "seoDescription": "Get Google search suggestions localized to a country and language, for example Spanish suggestions from Spain or German from Germany, for local SEO.",
+        "description": "Pull Google search suggestions localized to a specific country and language for local and international SEO. This example targets Spain in Spanish; change the country and language codes for any market.",
+        "input": {
+            "keywords": [
+                "seguro de coche",
+                "vuelos baratos a"
+            ],
+            "country": "es",
+            "language": "es",
+            "expandPrepositions": true
+        }
+    },
+    {
+        "name": "product-comparison-keywords-vs-versus",
+        "title": "Comparison keywords: X vs Y ideas",
+        "seoTitle": "Find 'vs' and comparison keywords from Google suggestions",
+        "seoDescription": "Discover what people compare a product with by expanding a seed keyword with vs, versus, like, without and other prepositions.",
+        "description": "Discover what people compare a product or brand with by expanding seed keywords with vs, versus, like, without, for and near. Useful for comparison pages, affiliate content and competitive research.",
+        "input": {
+            "keywords": [
+                "notion",
+                "shopify",
+                "airpods"
+            ],
+            "expandPrepositions": true,
+            "depth": 1
+        }
+    }
+]
