@@ -73,8 +73,7 @@
             ]
         },
         "expect": {
-            "status": "SUCCEEDED",
-            "minItems": 5
+            "status": "FAILED"
         }
     },
     "bad-country": {

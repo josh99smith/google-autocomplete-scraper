@@ -10,8 +10,7 @@
             "type": "array",
             "description": "One seed keyword per line (or a JSON array of strings). Google Autocomplete works best with partial phrases such as `best crm for` or `how to start a podcast`. Duplicates are removed automatically.",
             "editor": "stringList",
-            "prefill": ["best crm for", "how to start a podcast"],
-            "uniqueItems": true
+            "prefill": ["best crm for", "how to start a podcast"]
         },
         "country": {
             "title": "Country",
