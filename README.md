@@ -194,6 +194,21 @@ The Actor reads a public, unauthenticated endpoint at a low request rate, stores
 
 No. Output fields are stable: existing fields are never renamed or removed without a major version bump announced in the changelog, and new fields are only ever added. You can build integrations on the schema without checking it after every run.
 
+## Integrate Best Damn Google Autocomplete Scraper and automate your workflow
+
+Best Damn Google Autocomplete Scraper plugs into the tools you already use through [Apify integrations](https://docs.apify.com/platform/integrations), so results can flow on without anyone downloading a file. Ready-made connectors include:
+
+- [Make](https://docs.apify.com/platform/integrations/make)
+- [Zapier](https://docs.apify.com/platform/integrations/zapier)
+- [n8n](https://docs.apify.com/platform/integrations/n8n)
+- [Slack](https://docs.apify.com/platform/integrations/slack)
+- [Airbyte](https://docs.apify.com/platform/integrations/airbyte)
+- [GitHub](https://docs.apify.com/platform/integrations/github)
+- [Google Drive](https://docs.apify.com/platform/integrations/drive)
+- and [many more](https://docs.apify.com/platform/integrations).
+
+You can also attach [webhooks](https://docs.apify.com/platform/integrations/webhooks) to trigger your own endpoint whenever a run succeeds, fails or times out. For example, append fresh keyword ideas to a Google Sheet, or send a Slack digest when a research run finishes.
+
 ## Related Actors by the same developer
 
 - [Best Damn Tech Stack Detector](https://apify.com/josh99smith/tech-stack-detector): what a website is built with.
