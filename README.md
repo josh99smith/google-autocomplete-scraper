@@ -1,4 +1,4 @@
-![google-autocomplete-scraper banner](https://raw.githubusercontent.com/josh99smith/apify-actor-assets/main/banners/google-autocomplete-scraper.png)
+![google-autocomplete-scraper banner](https://raw.githubusercontent.com/josh99smith/apify-actor-assets/main/banners/google-autocomplete-scraper.png?v=bd1)
 
 This **Google Autocomplete scraper** collects Google keyword suggestions for any list of seed keywords, in any country and language. Type `best crm for` into Google and you see ten to fifteen phrases that real people search for; this Actor fetches those phrases for hundreds of seeds at once, expands them with a-z, question, preposition and number modifiers, and hands you a clean, deduplicated keyword list as JSON, CSV or Excel.
 
@@ -219,6 +219,7 @@ You can also attach [webhooks](https://docs.apify.com/platform/integrations/webh
 - [Best Damn PDF Text Extractor](https://apify.com/josh99smith/pdf-text-extractor): text and metadata from PDFs.
 - [Best Damn Sitemap URL Extractor](https://apify.com/josh99smith/sitemap-url-extractor): all URLs from XML sitemaps.
 - [Best Damn RSS to JSON Converter](https://apify.com/josh99smith/rss-feed-to-json): feeds as JSON.
+- [Best Damn YouTube Comments Scraper](https://apify.com/josh99smith/youtube-comments-scraper): comments and replies from YouTube videos and channels.
 
 ## Support and feedback
 

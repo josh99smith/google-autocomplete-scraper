@@ -1,6 +1,6 @@
 {
     "actorOutputSchemaVersion": 1,
-    "title": "Google Autocomplete Keyword Scraper output",
+    "title": "Best Damn Google Autocomplete Scraper output",
     "properties": {
         "results": {
             "type": "string",

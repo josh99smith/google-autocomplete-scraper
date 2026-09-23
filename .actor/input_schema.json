@@ -1,6 +1,6 @@
 {
     "$schema": "https://apify.com/schemas/v1/input.ide.json",
-    "title": "Google Autocomplete Keyword Scraper input",
+    "title": "Best Damn Google Autocomplete Scraper input",
     "description": "Enter one or more seed keywords. Each seed keyword (including all of its expansions) is one billable result; keywords that fail because of network or rate-limit errors are reported for free.",
     "type": "object",
     "schemaVersion": 1,
