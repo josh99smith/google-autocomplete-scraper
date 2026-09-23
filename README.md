@@ -15,7 +15,7 @@ It is built for **SEO specialists, content marketers and product researchers** w
 - Build topic clusters by re-querying each suggestion one level deeper
 - Track how autocomplete suggestions for a brand or product change over time
 
-## What can you do with Google Autocomplete Keyword Scraper?
+## What can you do with Best Damn Google Autocomplete Scraper?
 
 - **Long-tail keyword research**: turn one head term into hundreds of specific phrases (`best crm for real estate agents`, `best crm for nonprofits`, ...).
 - **Question mining**: prefix your topic with who / what / when / where / why / how / can / is / are / does / will to find the questions people actually type, ready for FAQ pages and blog outlines.
@@ -196,14 +196,14 @@ No. Output fields are stable: existing fields are never renamed or removed witho
 
 ## Related Actors by the same developer
 
-- [Website Tech Stack Detector](https://apify.com/josh99smith/tech-stack-detector): what a website is built with.
-- [Website Screenshot API](https://apify.com/josh99smith/website-screenshot-api): full-page screenshots and PDFs of any URL.
-- [App Reviews Scraper](https://apify.com/josh99smith/app-reviews-scraper): App Store and Google Play reviews.
-- [PageSpeed Insights Audit](https://apify.com/josh99smith/pagespeed-insights-audit): Core Web Vitals via Google's API.
-- [Remote Jobs Aggregator](https://apify.com/josh99smith/remote-jobs-aggregator): remote job listings.
-- [PDF Text Extractor](https://apify.com/josh99smith/pdf-text-extractor): text and metadata from PDFs.
-- [Sitemap URL Extractor](https://apify.com/josh99smith/sitemap-url-extractor): all URLs from XML sitemaps.
-- [RSS Feed to JSON](https://apify.com/josh99smith/rss-feed-to-json): feeds as JSON.
+- [Best Damn Tech Stack Detector](https://apify.com/josh99smith/tech-stack-detector): what a website is built with.
+- [Best Damn Website Screenshot API](https://apify.com/josh99smith/website-screenshot-api): full-page screenshots and PDFs of any URL.
+- [Best Damn App Reviews Scraper](https://apify.com/josh99smith/app-reviews-scraper): App Store and Google Play reviews.
+- [Best Damn PageSpeed Insights Audit](https://apify.com/josh99smith/pagespeed-insights-audit): Core Web Vitals via Google's API.
+- [Best Damn Remote Jobs Aggregator](https://apify.com/josh99smith/remote-jobs-aggregator): remote job listings.
+- [Best Damn PDF Text Extractor](https://apify.com/josh99smith/pdf-text-extractor): text and metadata from PDFs.
+- [Best Damn Sitemap URL Extractor](https://apify.com/josh99smith/sitemap-url-extractor): all URLs from XML sitemaps.
+- [Best Damn RSS to JSON Converter](https://apify.com/josh99smith/rss-feed-to-json): feeds as JSON.
 
 ## Support and feedback
 

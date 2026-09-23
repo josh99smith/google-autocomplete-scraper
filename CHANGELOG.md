@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2 (2026-09-23)
+
+- Listing: joined the Best Damn series. New title "Best Damn Google Autocomplete Scraper", new description, icon and README banner. No change to inputs, output or pricing.
+
 ## 0.1.1 (2026-09-20)
 
 - Fixed: an input list containing the same keyword twice was rejected by input validation with a confusing error. Duplicates are now removed by the Actor, as the description always said.

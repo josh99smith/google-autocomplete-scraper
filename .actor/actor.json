@@ -2,8 +2,8 @@
     "$schema": "https://apify.com/schemas/v1/actor.ide.json",
     "actorSpecification": 1,
     "name": "google-autocomplete-scraper",
-    "title": "Google Autocomplete Keyword Scraper",
-    "description": "Scrape Google autocomplete suggestions for keyword research: alphabet, question and preposition expansions, any country and language. Pay per seed keyword.",
+    "title": "Best Damn Google Autocomplete Scraper",
+    "description": "Pull every Google Autocomplete suggestion for your seed keywords: A-Z, question and preposition expansions in any country and language. Keyword research without the guesswork: pay per seed keyword, and failures are free.",
     "version": "0.1",
     "buildTag": "latest",
     "meta": {
