@@ -224,6 +224,6 @@ You can also attach [webhooks](https://docs.apify.com/platform/integrations/webh
 
 ## Support and feedback
 
-Found a problem or need another modifier set (for example comparison words in your language)? Open a ticket in the **Issues** tab of this Actor. The source code is available under the MIT licence.
+Found a problem or need another modifier set (for example comparison words in your language)? Open a ticket in the **Issues** tab of this Actor. The source code is available under the MIT licence. If this Actor saved you time, a review on its Store page helps other people find it.
 
 The full source code is on GitHub: [josh99smith/google-autocomplete-scraper](https://github.com/josh99smith/google-autocomplete-scraper). Stars and pull requests are welcome.
